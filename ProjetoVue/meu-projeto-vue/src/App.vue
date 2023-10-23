@@ -1,42 +1,34 @@
 <template>
-  <div id="app">
-  <header>
-  <h1>Meu Catálogo de Filmes e Livros</h1>
-  </header>
-  <main>
-  
-  <CatalogoDeFilmes />
-  </main>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link> |
+    <router-link to="/livros">Catalogo de Livros</router-link> |
+    <router-link to="/filmes">Catalogo de Filmes</router-link> |
+  </nav>
+  <div>
+    <router-view/>
   </div>
-  </template>
-  
-  <script>
-  import CatalogoDeFilmes from "@/components/CatalogoDeFilmes.vue";
-  import CatalogoDeLivros from "./components/CatalogoDeLivros.vue";
+</template>
 
-  export default {
-    
-  components: {
-  CatalogoDeFilmes,
-  CatalogoDeLivros
-  },
-  };
-  </script>
-  
-  <style>
-  #app {
+<style>
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 20px;
-  }
-  
-  header {
-  
-  background-color: #35495e;
-  color: #fff;
-  padding: 10px 0;
-  }
-  </style>
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>

@@ -1,50 +1,50 @@
 <template>
     <div class="catalogo-filmes">
-    <h2>Catálogo de Filmes</h2>
-    <input v-model="novoFilme" @keyup.enter="adicionarFilme"  
-    placeholder="Digite um novo filme" />
-    <ul>
-    <li v-for="(filme, index) in filmes" :key="index">
-    {{ filme.titulo }}
-    <button @click="alternarStatus(filme)">Marcar como {{
-    filme.assistido ? 'Não Assistido' : 'Assistido' }}</button>
-    </li>
-    </ul>
+        <h2>Catálogo de Filmes</h2>
+        <input v-model="novoFilme" @keyup.enter="adicionarFilme" placeholder="Digite um novo filme" />
+        <ul>
+            <li v-for="(filme, index) in filmes" :key="index">
+                {{ filme.titulo }}
+                <button @click="alternarStatus(filme)">Marcar como {{
+                    filme.assistido ? 'Não Assistido' : 'Assistido' }}</button>
+            </li>
+        </ul>
     </div>
-    </template>
+</template>
     
-    <script>
-    export default {
+<script>
+export default {
     data() {
-    return {
-    novoFilme: "",
-    filmes: [],
-    };
+        return {
+            novoFilme: "",
+            filmes: [],
+        };
     },
     methods: {
-    adicionarFilme() {
-    if (this.novoFilme.trim() !== "") {
-    this.filmes.push({ titulo: this.novoFilme, assistido: false });
-    this.novoFilme = "";
-    }
+        adicionarFilme() {
+            if (this.novoFilme.trim() !== "") {
+                this.filmes.push({ titulo: this.novoFilme, assistido: false });
+                this.novoFilme = "";
+            }
+        },
+        alternarStatus(filme) {
+            filme.assistido = !filme.assistido;
+        },
     },
-    alternarStatus(filme) {
-    filme.assistido = !filme.assistido;
-    },
-    },
-    };
-    </script>
+};
+</script>
     
-    <style scoped>
-    .catalogo-filmes {
+<style scoped>
+.catalogo-filmes {
     margin: 20px;
-    }
-    
-    ul {
+}
+
+ul {
     list-style-type: none;
     padding: 0;
-    }
-    li {
+}
+
+li {
     margin: 10px 0;
-    }
-    </style>
+}
+</style>

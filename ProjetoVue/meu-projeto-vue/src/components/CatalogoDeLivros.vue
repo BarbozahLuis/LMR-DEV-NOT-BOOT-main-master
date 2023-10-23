@@ -7,8 +7,7 @@
     <li v-for="(filme, index) in filmes" :key="index">
     {{ filme.titulo }}
     <button @click="alternarStatus(filme)">Marcar como {{
-    filme.assistido ? 'Não Lido' : 'Lido
-    ' }}</button>
+    filme.assistido ? 'Não Lido' : 'Lido. ' }}</button>
     </li>
     </ul>
     </div>
